@@ -78,6 +78,7 @@ public class AddStudent extends JFrame {
 		lblGender.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
 		JRadioButton rdbtnMale = new JRadioButton("Male");
+		rdbtnMale.setSelected(true);
 		rdbtnMale.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
 		JRadioButton rdbtnFemale = new JRadioButton("Female");
@@ -114,8 +115,9 @@ public class AddStudent extends JFrame {
 //					System.out.println(gen);
 					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 					String dat = sdf.format(dob.getDate());
+					String status = "Enable";
 					
-					String query = "insert into addstudent(ID,Name,Email,Gender,DateOfBirth,Contact,Address)"+"values (?,?,?,?,?,?,?)";
+					String query = "insert into addstudent(ID,Name,Email,Gender,DateOfBirth,Contact,Address,Status)"+"values (?,?,?,?,?,?,?,?)";
 					PreparedStatement pre = con.prepareStatement(query);
 					pre.setString(1, ID.getText());
 					pre.setString(2, name.getText());
@@ -124,6 +126,7 @@ public class AddStudent extends JFrame {
 					pre.setString(5, dat);
 					pre.setString(6, contact.getText());
 					pre.setString(7, address.getText());
+					pre.setString(8, status);
 					pre.execute();
 					pre.close();
 					//ResultSet rs=stmt.executeQuery(sql);  
@@ -137,9 +140,11 @@ public class AddStudent extends JFrame {
 //						JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
 					con.close();
 					JOptionPane.showMessageDialog(null, "The new student has been created");
+//					dispose();
+//					Menu menu = new Menu();
 					dispose();
-					Menu menu = new Menu();
-					menu.setVisible(true);
+					AddView view = new AddView();
+					view.setVisible(true);
 //					System.out.println("Data successfully deposited");
 				}catch(Exception e1){ System.out.println(e1);}  
 				
@@ -150,8 +155,10 @@ public class AddStudent extends JFrame {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Menu menu = new Menu();
-				menu.setVisible(true);
+//				Menu menu = new Menu();
+//				menu.setVisible(true);
+				AddView view = new AddView();
+				view.setVisible(true);
 			}
 		});
 		

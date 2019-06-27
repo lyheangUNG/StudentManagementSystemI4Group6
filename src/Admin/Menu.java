@@ -45,11 +45,11 @@ public class Menu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JButton addStudent = new JButton("Add Student");
+		JButton addStudent = new JButton("Manage Student");
 		addStudent.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		addStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AddStudent add = new AddStudent();
+				AddView add = new AddView();
 				dispose();
 				add.setVisible(true);
 			}
@@ -66,75 +66,32 @@ public class Menu extends JFrame {
 				log.setVisible(true);
 			}
 		});
-		
-		JButton btnUpdateStudent = new JButton("Update Student");
-		btnUpdateStudent.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-				UpdateStudent update = new UpdateStudent();
-				update.setVisible(true);
-			}
-		});
-		btnUpdateStudent.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
-		JButton btnDeletestudent = new JButton("DeleteStudent");
-		btnDeletestudent.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-				DeleteStudent del = new DeleteStudent();
-				del.setVisible(true);
-			}
-		});
-		btnDeletestudent.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
-		JButton btnViewStudents = new JButton("View Students");
-		btnViewStudents.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-				ViewStudent view = new ViewStudent();
-				view.setVisible(true);
-			}
-		});
-		btnViewStudents.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(83)
-					.addComponent(addStudent, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnViewStudents, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnUpdateStudent, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(btnDeletestudent, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(62, Short.MAX_VALUE))
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap(204, Short.MAX_VALUE)
-					.addComponent(lblStudentManagementSystem, GroupLayout.PREFERRED_SIZE, 367, GroupLayout.PREFERRED_SIZE)
-					.addGap(123))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(306, Short.MAX_VALUE)
-					.addComponent(logOut, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
-					.addGap(282))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(lblStudentManagementSystem, GroupLayout.PREFERRED_SIZE, 367, GroupLayout.PREFERRED_SIZE)
+							.addGap(123))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(addStudent, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)
+							.addGap(258))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(logOut, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
+							.addGap(289))))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblStudentManagementSystem, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-					.addGap(27)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(addStudent, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-							.addComponent(btnUpdateStudent, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
-							.addComponent(btnDeletestudent, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)))
-					.addGap(18)
-					.addComponent(btnViewStudents, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+					.addGap(28)
+					.addComponent(addStudent, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
 					.addComponent(logOut, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-					.addGap(25))
+					.addGap(24))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
